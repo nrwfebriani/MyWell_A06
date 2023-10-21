@@ -1,6 +1,6 @@
-# ca6
+# MyWell
 
-A new Flutter project.
+Capstone Project A_06
 
 ## Getting Started
 
