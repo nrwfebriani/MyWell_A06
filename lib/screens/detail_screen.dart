@@ -123,64 +123,88 @@ class _DetailScreenState extends State<DetailScreen> {
             child: Column(
               children: [
                 (flag == false)
-                    ? SizedBox(
-                        height: 180,
-                        width: 350,
-                        child: Card(
-                            shape: RoundedRectangleBorder(borderRadius:
-                            BorderRadius.circular(21)),
-                            color: CustomColors.blackGrey,
-                            child: Padding(
-                              padding: const EdgeInsets.fromLTRB(25, 16,
-                                  16, 16),
-                              child: Column(
-                                  children: [
-                                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text("Status air:", style: CustomStyle
-                                            .statusFalseTitle, textAlign:
-                                        TextAlign
-                                            .left,),
-                                      ],
-                                    ),
-                                    Column(
+                    ?
+                Column(
+                  children: [
+                    Text("Status air",
+                        style: CustomStyle.statusTitle,
+                    textAlign: TextAlign.center,),
+                    SizedBox(height: 10.0),
+                    SizedBox(
+                            height: 90,
+                            width: 350,
+                            child: Card(
+                                shape: RoundedRectangleBorder(borderRadius:
+                                BorderRadius.circular(21)),
+                                color: CustomColors.blackGrey,
+                                child: Padding(
+                                  padding: const EdgeInsets.fromLTRB(25, 16,
+                                      16, 16),
+                                  child: Column(
                                       mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
-                                        SizedBox(height: 30),
                                         Text(status,
-                                          style: CustomStyle.statusFalse),
-                                      ],
-                                    )]),
-                            )))
-                    : SizedBox(
-                        height: 180,
-                        width: 350,
-                        child: Card(
-                          shape: RoundedRectangleBorder(borderRadius:
-                          BorderRadius.circular(21)),
-                            color: CustomColors.colorAccent,
-                            child: Padding(
-                              padding: const EdgeInsets.fromLTRB(25, 16,
-                                  16, 16),
-                              child: Column(
-                                  children: [
-                                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            style: CustomStyle.statusFalse),
+                                        // Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        //   children: [
+                                        //     Text("Status air:", style: CustomStyle
+                                        //         .statusFalseTitle, textAlign:
+                                        //     TextAlign
+                                        //         .left,),
+                                        //   ],
+                                        // ),
+                                        // Column(
+                                        //   mainAxisAlignment: MainAxisAlignment.center,
+                                        //   children: [
+                                        //     // SizedBox(height: 30),
+                                        //     Text(status,
+                                        //       style: CustomStyle.statusFalse),
+                                        //   ],)
+                                      ]),
+                                ))),
+                  ],
+                )
+                    : Column(
+                      children: [
+                        Text("Status air",
+                          style: CustomStyle.statusTitle,
+                          textAlign: TextAlign.center,),
+                        SizedBox(height: 10.0),
+                        SizedBox(
+                            height: 90,
+                            width: 350,
+                            child: Card(
+                              shape: RoundedRectangleBorder(borderRadius:
+                              BorderRadius.circular(21)),
+                                color: CustomColors.colorAccent,
+                                child: Padding(
+                                  padding: const EdgeInsets.fromLTRB(25, 16,
+                                      16, 16),
+                                  child: Column(
+                                      mainAxisAlignment: MainAxisAlignment
+                                          .center,
                                       children: [
-                                        Text("Status air:", style: CustomStyle
-                                            .statusTrueTitle, textAlign:
-                                        TextAlign
-                                            .left,),
-                                      ],
-                                    ),
-                                    Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        SizedBox(height: 30,),
                                         Text(status,
-                                          style: CustomStyle.statusTrue),
-                                      ],
-                                    )]),
-                            ))),
+                                            style: CustomStyle.statusTrue),
+                                        // Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        //   children: [
+                                        //     Text("Status air:", style: CustomStyle
+                                        //         .statusTrueTitle, textAlign:
+                                        //     TextAlign
+                                        //         .left,),
+                                        //   ],
+                                        // ),
+                                        // Column(
+                                        //   mainAxisAlignment: MainAxisAlignment.center,
+                                        //   children: [
+                                        //     // SizedBox(height: 30,),
+                                        //     Text(status,
+                                        //       style: CustomStyle.statusTrue),
+                                        //   ],)
+                                      ]),
+                                ))),
+                      ],
+                    ),
                 SizedBox(height: 50),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -431,7 +455,7 @@ class TDSPopUpCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 30.0),
         child: Hero(
           tag: _heroPopUpTDS,
           child: Material(
@@ -441,36 +465,71 @@ class TDSPopUpCard extends StatelessWidget {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(21)),
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 30.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    Column(
                       children: [
-                        Text(
-                          "TDS",
-                          style: CustomStyle.popUpTitle,
-                          textAlign: TextAlign.left,
-                        ),
-                        Text(
-                          tds,
-                          style: CustomStyle.popUpValue,
-                          textAlign: TextAlign.right,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                                Text(
+                                  "TDS",
+                                  style: CustomStyle.popUpTitle,
+                                  textAlign: TextAlign.left,
+                                ),
+                            Text(
+                              tds,
+                              style: CustomStyle.popUpValue,
+                              textAlign: TextAlign.right,
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                    Text("(Total Dissolved Solids)",
-                        style: CustomStyle.popUpSubtitle),
+                    Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("(Total Dissolved Solids)",
+                              style: CustomStyle.popUpSubtitle,
+                              textAlign: TextAlign.left,),
+                            Text(
+                              "mg/l",
+                              style: CustomStyle.popUpValueUnit,
+                              textAlign: TextAlign.right,
+                            ),
+                          ],
+
+                        ),
+                      ],
+                    ),
                     Divider(
                       color: CustomColors.blackGrey,
                       thickness: 0.2,
                     ),
                     Text(
-                      tds_Content,
+                      tdsContent,
                       style: CustomStyle.popUpContent,
                       textAlign: TextAlign.justify,
                     ),
+                    SizedBox(height: 30.0),
+                    Divider(color: CustomColors.blackGrey,
+                      thickness: 0.2,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Sumber: ",
+                          style: CustomStyle.resTitle,
+                          textAlign: TextAlign.left,
+                        ),
+                      ],
+                    ),
+                    Text(resWHO,
+                      style: CustomStyle.res,
+                    textAlign: TextAlign.justify,)
                   ],
                 ),
               ),
@@ -489,7 +548,7 @@ class TSSPopUpCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 30.0),
         child: Hero(
           tag: _heroPopUpTSS,
           child: Material(
@@ -499,36 +558,70 @@ class TSSPopUpCard extends StatelessWidget {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(21)),
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 30.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    Column(
                       children: [
-                        Text(
-                          "TSS",
-                          style: CustomStyle.popUpTitle,
-                          textAlign: TextAlign.left,
-                        ),
-                        Text(
-                          tss,
-                          style: CustomStyle.popUpValue,
-                          textAlign: TextAlign.right,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "TSS",
+                              style: CustomStyle.popUpTitle,
+                              textAlign: TextAlign.left,
+                            ),
+                            Text(
+                              tss,
+                              style: CustomStyle.popUpValue,
+                              textAlign: TextAlign.right,
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                    Text("(Total Suspended Solids)",
-                        style: CustomStyle.popUpSubtitle),
+                    Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("(Total Suspended Solids)",
+                                style: CustomStyle.popUpSubtitle,
+                            textAlign: TextAlign.left,),
+                            Text(
+                              "NTU",
+                              style: CustomStyle.popUpValueUnit,
+                              textAlign: TextAlign.right,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                     Divider(
                       color: CustomColors.blackGrey,
                       thickness: 0.2,
                     ),
                     Text(
-                      tss_Content,
+                      tssContent,
                       style: CustomStyle.popUpContent,
                         textAlign: TextAlign.justify
                     ),
+                    SizedBox(height: 30.0),
+                    Divider(color: CustomColors.blackGrey,
+                      thickness: 0.2,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Sumber: ",
+                          style: CustomStyle.resTitle,
+                          textAlign: TextAlign.left,
+                        ),
+                      ],
+                    ),
+                    Text(resTSS1,
+                      style: CustomStyle.res,
+                      textAlign: TextAlign.justify,)
                   ],
                 ),
               ),
@@ -547,7 +640,7 @@ class PHPopUpCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 30.0),
         child: Hero(
           tag: _heroPopUppH,
           child: Material(
@@ -557,7 +650,7 @@ class PHPopUpCard extends StatelessWidget {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(21)),
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 30.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -581,10 +674,25 @@ class PHPopUpCard extends StatelessWidget {
                       thickness: 0.2,
                     ),
                     Text(
-                      ph_Content,
+                      phContent,
                       style: CustomStyle.popUpContent,
                         textAlign: TextAlign.justify
                     ),
+                    SizedBox(height: 30.0),
+                    Divider(color: CustomColors.blackGrey,
+                      thickness: 0.2,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Sumber: ",
+                          style: CustomStyle.resTitle,
+                          textAlign: TextAlign.left,
+                        ),
+                      ],
+                    ),
+                    Text(respH1,
+                      style: CustomStyle.res,
+                      textAlign: TextAlign.justify,)
                   ],
                 ),
               ),

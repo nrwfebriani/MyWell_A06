@@ -50,7 +50,7 @@ class CustomStyle {
     ),
   );
 
-  static final TextStyle popUpTitle = GoogleFonts.openSans(
+  static final TextStyle popUpTitle = GoogleFonts.montserrat(
     textStyle: TextStyle(
         color: CustomColors.blackGrey,
         fontSize: 30,
@@ -58,16 +58,16 @@ class CustomStyle {
     ),
   );
 
-  static final TextStyle popUpSubtitle = GoogleFonts.openSansCondensed(
+  static final TextStyle popUpSubtitle = GoogleFonts.montserrat(
     textStyle: TextStyle(
         color: CustomColors.blackGrey,
         fontSize: 15,
         fontStyle: FontStyle.italic,
-        fontWeight: FontWeight.w600
+        fontWeight: FontWeight.w700
     ),
   );
 
-  static final TextStyle popUpValue = GoogleFonts.openSans(
+  static final TextStyle popUpValue = GoogleFonts.montserrat(
     textStyle: TextStyle(
       color: CustomColors.blackGrey,
       fontSize: 35,
@@ -75,11 +75,35 @@ class CustomStyle {
     ),
   );
 
-  static final TextStyle popUpContent = GoogleFonts.openSans(
+  static final TextStyle popUpValueUnit = GoogleFonts.montserrat(
+    textStyle: TextStyle(
+      color: CustomColors.blackGrey,
+      fontSize: 15,
+      fontWeight: FontWeight.w700,
+    ),
+  );
+
+  static final TextStyle popUpContent = GoogleFonts.montserrat(
     textStyle: TextStyle(
       color: CustomColors.blackGrey,
       fontSize: 12,
-      fontWeight: FontWeight.w300,
+      fontWeight: FontWeight.w400,
+    ),
+  );
+
+  static final TextStyle resTitle = GoogleFonts.montserrat(
+    textStyle: TextStyle(
+      color: CustomColors.blackGrey,
+      fontSize: 12,
+      fontWeight: FontWeight.w700,
+    ),
+  );
+
+  static final TextStyle res = GoogleFonts.montserrat(
+    textStyle: TextStyle(
+      color: CustomColors.blackGrey,
+      fontSize: 12,
+      fontWeight: FontWeight.w400,
     ),
   );
 
@@ -147,11 +171,11 @@ class CustomStyle {
     ),
   );
 
-  static final TextStyle appDescription = GoogleFonts.openSans(
+  static final TextStyle appDescription = GoogleFonts.montserrat(
     textStyle: TextStyle(
       color: CustomColors.whiteCreamOri,
       fontSize: 15,
-      fontWeight: FontWeight.w300,
+      fontWeight: FontWeight.w400,
     ),
   );
 
@@ -163,10 +187,10 @@ class CustomStyle {
     ),
   );
 
-  static final TextStyle statusTrueTitle = GoogleFonts.openSans(
+  static final TextStyle statusTitle = GoogleFonts.openSans(
     textStyle: TextStyle(
       color: CustomColors.blackGrey,
-      fontSize: 35,
+      fontSize: 25,
       fontWeight: FontWeight.w700,
     ),
   );
@@ -186,6 +210,8 @@ class CustomStyle {
       fontWeight: FontWeight.w700,
     ),
   );
+
+
 
 }
 

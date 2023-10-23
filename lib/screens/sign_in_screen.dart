@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ca6/res/styles.dart';
 import 'package:ca6/utils/authentication.dart';
 import 'package:ca6/widgets/google_sign_in_button.dart';
+import 'package:ca6/res/text_content.dart';
 
 class SignInScreen extends StatefulWidget {
   @override
@@ -47,9 +48,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         style: CustomStyle.mainTitle,
                         ),
                         SizedBox(height: 30,),
-                        Text(
-                          'Lorem ipsum dolor sit amet, consectetur adipiscing '
-                              'elit. Integer risus lectus, scelerisque eu mauris quis, luctus lobortis tortor. Integer vulputate vehicula eros eget tincidunt. Cras ultricies turpis elit, vel elementum ipsum ornare eget.',
+                        Text(welcomeContent,
                           style: CustomStyle.appDescription,
                           textAlign: TextAlign.justify,
                         ),
