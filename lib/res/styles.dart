@@ -123,7 +123,7 @@ class CustomStyle {
     ),
   );
 
-  static final TextStyle mainTitle = GoogleFonts.openSans(
+  static final TextStyle mainTitle = GoogleFonts.montserrat(
     textStyle: TextStyle(
       color: CustomColors.colorAccent,
       fontSize: 30,

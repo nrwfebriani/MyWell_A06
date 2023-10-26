@@ -38,16 +38,16 @@ class _SignInScreenState extends State<SignInScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        width: 64,
-                        height: 64,
-                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage('assets/logowater2.png'), fit: BoxFit.cover,))
+                        width: 150,
+                        height: 150,
+                        decoration: BoxDecoration(image: DecorationImage(image: AssetImage('assets/logo.png'), fit: BoxFit.cover,))
                       ),
-                      SizedBox(height: 30),
+                      SizedBox(height: 10),
                       Text(
                         'MyWell',
                         style: CustomStyle.mainTitle,
                         ),
-                        SizedBox(height: 30,),
+                        SizedBox(height: 10,),
                         Text(welcomeContent,
                           style: CustomStyle.appDescription,
                           textAlign: TextAlign.justify,
@@ -56,7 +56,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 80,),
+              SizedBox(height: 50,),
               FutureBuilder(
                 future: Authentication.initializeFirebase(context: context),
                 builder: (context, snapshot) {
