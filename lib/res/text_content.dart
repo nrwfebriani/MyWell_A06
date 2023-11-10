@@ -17,7 +17,7 @@ const String tssContent =
     "Total suspended solids adalah parameter untuk mengukur total partikel "
     "padat yang terlarut dan tidak terlarut dalam air. Partikel ini termasuk "
     "partikel organik dan anorganik dalam air yang hasilnya dinyatakan dalam "
-    "mg/l. Standar yang baik menurut WHO bernilai kurang dari 10 mg/l.";
+    "NTU. Standar yang baik menurut WHO bernilai kurang dari 30 NTU.";
 
 const String phContent =
     "pH adalah ukuran seberapa asam/basa air melalui jumlah relatif hidrogen "

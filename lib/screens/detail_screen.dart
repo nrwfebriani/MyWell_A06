@@ -21,10 +21,10 @@ String ph = '0';
 double ph2 = 0.0;
 String status = '--';
 bool flag = false;
-double phMax = 8;
-double phMin = 6;
-double tdsMax = 1000;
-double tssMax = 6;
+double phMax = 8.5;
+double phMin = 6.5;
+double tdsMax = 600;
+double tssMax = 30;
 
 class DetailScreen extends StatefulWidget {
   const DetailScreen({Key? key, required User user})
@@ -119,7 +119,7 @@ class _DetailScreenState extends State<DetailScreen> {
           Positioned(
             left: 16,
             right: 16,
-            top: 50,
+            top: 30,
             child: Column(
               children: [
                 (flag == false)
@@ -145,21 +145,6 @@ class _DetailScreenState extends State<DetailScreen> {
                                       children: [
                                         Text(status,
                                             style: CustomStyle.statusFalse),
-                                        // Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        //   children: [
-                                        //     Text("Status air:", style: CustomStyle
-                                        //         .statusFalseTitle, textAlign:
-                                        //     TextAlign
-                                        //         .left,),
-                                        //   ],
-                                        // ),
-                                        // Column(
-                                        //   mainAxisAlignment: MainAxisAlignment.center,
-                                        //   children: [
-                                        //     // SizedBox(height: 30),
-                                        //     Text(status,
-                                        //       style: CustomStyle.statusFalse),
-                                        //   ],)
                                       ]),
                                 ))),
                   ],
@@ -186,21 +171,6 @@ class _DetailScreenState extends State<DetailScreen> {
                                       children: [
                                         Text(status,
                                             style: CustomStyle.statusTrue),
-                                        // Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        //   children: [
-                                        //     Text("Status air:", style: CustomStyle
-                                        //         .statusTrueTitle, textAlign:
-                                        //     TextAlign
-                                        //         .left,),
-                                        //   ],
-                                        // ),
-                                        // Column(
-                                        //   mainAxisAlignment: MainAxisAlignment.center,
-                                        //   children: [
-                                        //     // SizedBox(height: 30,),
-                                        //     Text(status,
-                                        //       style: CustomStyle.statusTrue),
-                                        //   ],)
                                       ]),
                                 ))),
                       ],
@@ -234,7 +204,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                             child: Column(
                                               mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
-                                                Text("TDS",
+                                                Text("Total Dissolved Solids",
                                                     style:
                                                         CustomStyle
                                                             .cardTitleFalse),
@@ -262,7 +232,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                             child: Column(
                                               mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
-                                                Text("TDS",
+                                                Text("Total Dissolved Solids",
                                                     style:
                                                         CustomStyle
                                                             .cardTitleTrue),
@@ -308,7 +278,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                             child: Column(
                                               mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
-                                                Text("TSS",
+                                                Text("Total Suspended Solids",
                                                     style:
                                                         CustomStyle
                                                             .cardTitleFalse),
@@ -336,7 +306,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                             child: Column(
                                               mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
-                                                Text("TSS",
+                                                Text("Total Suspended Solids",
                                                     style:
                                                         CustomStyle
                                                             .cardTitleTrue),

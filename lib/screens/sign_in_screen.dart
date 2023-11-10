@@ -19,7 +19,7 @@ class _SignInScreenState extends State<SignInScreen> {
           padding: const EdgeInsets.only(
             left: 20.0,
             right: 20.0,
-            bottom: 50.0,
+            bottom: 30.0,
             top: 105.0,
           ),
           child: Column(
@@ -56,7 +56,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 50,),
+              SizedBox(height: 30,),
               FutureBuilder(
                 future: Authentication.initializeFirebase(context: context),
                 builder: (context, snapshot) {
