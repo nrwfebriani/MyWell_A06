@@ -11,13 +11,14 @@ const String tdsContent =
     "terlarut dalam air. Tingkat TDS dalam air nilainya bervariasi sesuai "
     "dengan perbedaan perolehan sumber airnya. Menurut WHO, tingkatan TDS "
     "akan mempengaruhi rasa air. Namun, dampaknya bagi kesehatan belum dapat "
-    "dipastikan. Standar yang diterapkan WHO untuk tingkatan TDS yang baik bernilai kurang dari 600 mg/l.";
+    "dipastikan. Standar yang diterapkan WHO untuk tingkatan TDS yang baik "
+    "bernilai kurang dari 500 mg/l.";
 
 const String tssContent =
     "Total suspended solids adalah parameter untuk mengukur total partikel "
     "padat yang terlarut dan tidak terlarut dalam air. Partikel ini termasuk "
     "partikel organik dan anorganik dalam air yang hasilnya dinyatakan dalam "
-    "NTU. Standar yang baik menurut WHO bernilai kurang dari 30 NTU.";
+    "NTU. Standar yang baik menurut WHO bernilai kurang dari 5 NTU.";
 
 const String phContent =
     "pH adalah ukuran seberapa asam/basa air melalui jumlah relatif hidrogen "

@@ -23,8 +23,8 @@ String status = '--';
 bool flag = false;
 double phMax = 8.5;
 double phMin = 6.5;
-double tdsMax = 600;
-double tssMax = 30;
+double tdsMax = 500;
+double tssMax = 5;
 
 class DetailScreen extends StatefulWidget {
   const DetailScreen({Key? key, required User user})
