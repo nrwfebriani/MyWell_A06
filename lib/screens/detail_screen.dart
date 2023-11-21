@@ -104,7 +104,7 @@ class _DetailScreenState extends State<DetailScreen> {
         ph2 = double.parse(ph);
       });
     });
-    
+
     if (tds2 > tdsMax || tss2 > tssMax || ph2 > phMax || ph2 < phMin) {
       status = 'Air tidak layak minum';
       flag = false;

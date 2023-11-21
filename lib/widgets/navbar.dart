@@ -19,6 +19,7 @@ class Navbar extends StatefulWidget {
 
 class _NavbarState extends State<Navbar> {
   late User _user;
+  // ignore: unused_field
   bool _isSigningOut = false;
 
   @override
@@ -36,53 +37,84 @@ class _NavbarState extends State<Navbar> {
         padding: EdgeInsets.zero,
         children: [
           UserAccountsDrawerHeader(
-              accountName: Text(_user.displayName!, style: CustomStyle.userName,),
-              accountEmail: Text('(${_user.email!})', style: CustomStyle.userEmail,),
-          currentAccountPicture: CircleAvatar(
-            child: _user.photoURL != null
-                ? ClipOval(
-              child: Material(
-                color: CustomColors.firebaseGrey.withOpacity(0.3),
-                child: Image.network(
-                  _user.photoURL!,
-                  fit: BoxFit.fitHeight,
-                ),
-              ),
-            )
-                : ClipOval(
-              child: Material(
-                color: CustomColors.firebaseGrey.withOpacity(0.3),
-                child: const Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Icon(
-                    Icons.person,
-                    size: 60,
-                    color: CustomColors.firebaseGrey,
-                  ),
-                ),
-              ),
-            ),),
+            accountName: Text(
+              _user.displayName!,
+              style: CustomStyle.userName,
+            ),
+            accountEmail: Text(
+              '(${_user.email!})',
+              style: CustomStyle.userEmail,
+            ),
+            currentAccountPicture: CircleAvatar(
+              child: _user.photoURL != null
+                  ? ClipOval(
+                      child: Material(
+                        color: CustomColors.firebaseGrey.withOpacity(0.3),
+                        child: Image.network(
+                          _user.photoURL!,
+                          fit: BoxFit.fitHeight,
+                        ),
+                      ),
+                    )
+                  : ClipOval(
+                      child: Material(
+                        color: CustomColors.firebaseGrey.withOpacity(0.3),
+                        child: const Padding(
+                          padding: EdgeInsets.all(16.0),
+                          child: Icon(
+                            Icons.person,
+                            size: 60,
+                            color: CustomColors.firebaseGrey,
+                          ),
+                        ),
+                      ),
+                    ),
+            ),
             decoration: const BoxDecoration(
               color: CustomColors.colorAccent,
             ),
           ),
           ListTile(
-            leading: const Icon(Icons.home, color: CustomColors.colorAccent,),
-            title: Text('Beranda', style: CustomStyle.navbarMenu,),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => DashboardScreen(user: _user)),);
-    }),
-          ListTile(
-              leading: const Icon(Icons.water_drop, color: CustomColors.colorAccent,),
-              title: Text('Informasi detail', style: CustomStyle.navbarMenu,),
+              leading: const Icon(
+                Icons.home,
+                color: CustomColors.colorAccent,
+              ),
+              title: Text(
+                'Beranda',
+                style: CustomStyle.navbarMenu,
+              ),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)
-                => DetailScreen(user: _user)),);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => DashboardScreen(user: _user)),
+                );
               }),
           ListTile(
-              leading: const Icon(Icons.logout, color: CustomColors
-                  .colorAccent,),
-              title: Text('Keluar', style: CustomStyle.navbarMenu,),
+              leading: const Icon(
+                Icons.water_drop,
+                color: CustomColors.colorAccent,
+              ),
+              title: Text(
+                'Informasi detail',
+                style: CustomStyle.navbarMenu,
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => DetailScreen(user: _user)),
+                );
+              }),
+          ListTile(
+              leading: const Icon(
+                Icons.logout,
+                color: CustomColors.colorAccent,
+              ),
+              title: Text(
+                'Keluar',
+                style: CustomStyle.navbarMenu,
+              ),
               onTap: () async {
                 setState(() {
                   _isSigningOut = true;
@@ -91,8 +123,10 @@ class _NavbarState extends State<Navbar> {
                 setState(() {
                   _isSigningOut = false;
                 });
-                Navigator.push(context, MaterialPageRoute(builder: (context)
-                => const SignInScreen()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SignInScreen()));
               }),
         ],
       ),
