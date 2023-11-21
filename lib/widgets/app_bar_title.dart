@@ -2,7 +2,7 @@ import 'package:ca6/res/styles.dart';
 import 'package:flutter/material.dart';
 
 class AppBarTitle extends StatelessWidget {
-  const AppBarTitle({Key? key, required String this.pageTitle}) : super
+  const AppBarTitle({Key? key, required this.pageTitle}) : super
       (key: key);
   final String pageTitle;
   @override

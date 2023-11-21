@@ -20,7 +20,7 @@ double tss2 = 0.0;
 String ph = '0';
 double ph2 = 0.0;
 String status = '--';
-bool flag = false;
+bool flag = true;
 double phMax = 8.5;
 double phMin = 6.5;
 double tdsMax = 500;
@@ -56,18 +56,18 @@ class _DetailScreenState extends State<DetailScreen> {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: CustomColors.colorAccent,
-          title: AppBarTitle(pageTitle: "Informasi detail"),
+          title: const AppBarTitle(pageTitle: "Informasi detail"),
         ),
         drawer: Navbar(user: _user),
         body: FutureBuilder(
             future: _fApp,
             builder: (context, snapshot) {
               if (snapshot.hasError) {
-                return Text("Error fetching data.");
+                return const Text("Error fetching data.");
               } else if (snapshot.hasData) {
                 return contents();
               } else {
-                return CircularProgressIndicator();
+                return const CircularProgressIndicator();
               }
             }));
   }
@@ -104,7 +104,7 @@ class _DetailScreenState extends State<DetailScreen> {
         ph2 = double.parse(ph);
       });
     });
-
+    
     if (tds2 > tdsMax || tss2 > tssMax || ph2 > phMax || ph2 < phMin) {
       status = 'Air tidak layak minum';
       flag = false;
@@ -123,59 +123,63 @@ class _DetailScreenState extends State<DetailScreen> {
             child: Column(
               children: [
                 (flag == false)
-                    ?
-                Column(
-                  children: [
-                    Text("Status air",
-                        style: CustomStyle.statusTitle,
-                    textAlign: TextAlign.center,),
-                    SizedBox(height: 10.0),
-                    SizedBox(
-                            height: 90,
-                            width: 350,
-                            child: Card(
-                                shape: RoundedRectangleBorder(borderRadius:
-                                BorderRadius.circular(21)),
-                                color: CustomColors.blackGrey,
-                                child: Padding(
-                                  padding: const EdgeInsets.fromLTRB(25, 16,
-                                      16, 16),
-                                  child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Text(status,
-                                            style: CustomStyle.statusFalse),
-                                      ]),
-                                ))),
-                  ],
-                )
+                    ? Column(
+                        children: [
+                          Text(
+                            "Status air",
+                            style: CustomStyle.statusTitle,
+                            textAlign: TextAlign.center,
+                          ),
+                          const SizedBox(height: 10.0),
+                          SizedBox(
+                              height: 90,
+                              width: 350,
+                              child: Card(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(21)),
+                                  color: CustomColors.blackGrey,
+                                  child: Padding(
+                                    padding: const EdgeInsets.fromLTRB(
+                                        25, 16, 16, 16),
+                                    child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(status,
+                                              style: CustomStyle.statusFalse),
+                                        ]),
+                                  ))),
+                        ],
+                      )
                     : Column(
-                      children: [
-                        Text("Status air",
-                          style: CustomStyle.statusTitle,
-                          textAlign: TextAlign.center,),
-                        SizedBox(height: 10.0),
-                        SizedBox(
-                            height: 90,
-                            width: 350,
-                            child: Card(
-                              shape: RoundedRectangleBorder(borderRadius:
-                              BorderRadius.circular(21)),
-                                color: CustomColors.colorAccent,
-                                child: Padding(
-                                  padding: const EdgeInsets.fromLTRB(25, 16,
-                                      16, 16),
-                                  child: Column(
-                                      mainAxisAlignment: MainAxisAlignment
-                                          .center,
-                                      children: [
-                                        Text(status,
-                                            style: CustomStyle.statusTrue),
-                                      ]),
-                                ))),
-                      ],
-                    ),
-                SizedBox(height: 50),
+                        children: [
+                          Text(
+                            "Status air",
+                            style: CustomStyle.statusTitle,
+                            textAlign: TextAlign.center,
+                          ),
+                          const SizedBox(height: 10.0),
+                          SizedBox(
+                              height: 90,
+                              width: 350,
+                              child: Card(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(21)),
+                                  color: CustomColors.colorAccent,
+                                  child: Padding(
+                                    padding: const EdgeInsets.fromLTRB(
+                                        25, 16, 16, 16),
+                                    child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(status,
+                                              style: CustomStyle.statusTrue),
+                                        ]),
+                                  ))),
+                        ],
+                      ),
+                const SizedBox(height: 50),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -193,8 +197,9 @@ class _DetailScreenState extends State<DetailScreen> {
                               children: [
                                 (tds2 > tdsMax) //False
                                     ? Card(
-                                        shape: RoundedRectangleBorder(borderRadius:
-                                        BorderRadius.circular(6)),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(6)),
                                         color: CustomColors.colorAccent2,
                                         elevation: 10,
                                         child: SizedBox(
@@ -202,16 +207,16 @@ class _DetailScreenState extends State<DetailScreen> {
                                           width: 350,
                                           child: Center(
                                             child: Column(
-                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
                                               children: [
                                                 Text("Total Dissolved Solids",
-                                                    style:
-                                                        CustomStyle
-                                                            .cardTitleFalse),
-                                                Padding(
+                                                    style: CustomStyle
+                                                        .cardTitleFalse),
+                                                const Padding(
                                                     padding:
-                                                        EdgeInsets.fromLTRB
-                                                          (10, 5, 10, 5)),
+                                                        EdgeInsets.fromLTRB(
+                                                            10, 5, 10, 5)),
                                                 Text(tds,
                                                     style: CustomStyle
                                                         .cardContentFalse),
@@ -220,9 +225,11 @@ class _DetailScreenState extends State<DetailScreen> {
                                           ),
                                         ),
                                       )
-                                    : Card( //True
-                                        shape: RoundedRectangleBorder(borderRadius:
-                                  BorderRadius.circular(6)),
+                                    : Card(
+                                        //True
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(6)),
                                         color: CustomColors.whiteCream,
                                         elevation: 10,
                                         child: SizedBox(
@@ -230,16 +237,16 @@ class _DetailScreenState extends State<DetailScreen> {
                                           width: 350,
                                           child: Center(
                                             child: Column(
-                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
                                               children: [
                                                 Text("Total Dissolved Solids",
-                                                    style:
-                                                        CustomStyle
-                                                            .cardTitleTrue),
-                                                Padding(
+                                                    style: CustomStyle
+                                                        .cardTitleTrue),
+                                                const Padding(
                                                     padding:
-                                                    EdgeInsets.fromLTRB
-                                                      (10, 5, 10, 5)),
+                                                        EdgeInsets.fromLTRB(
+                                                            10, 5, 10, 5)),
                                                 Text(tds,
                                                     style: CustomStyle
                                                         .cardContentTrue),
@@ -252,7 +259,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             )
                           ]),
                         )),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     GestureDetector(
                         onTap: () {
                           Navigator.of(context)
@@ -267,8 +274,9 @@ class _DetailScreenState extends State<DetailScreen> {
                               children: [
                                 (tss2 > tssMax) //False
                                     ? Card(
-                                        shape: RoundedRectangleBorder(borderRadius:
-                                  BorderRadius.circular(6)),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(6)),
                                         color: CustomColors.colorAccent2,
                                         elevation: 10,
                                         child: SizedBox(
@@ -276,16 +284,16 @@ class _DetailScreenState extends State<DetailScreen> {
                                           width: 350,
                                           child: Center(
                                             child: Column(
-                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
                                               children: [
                                                 Text("Total Suspended Solids",
-                                                    style:
-                                                        CustomStyle
-                                                            .cardTitleFalse),
-                                                Padding(
+                                                    style: CustomStyle
+                                                        .cardTitleFalse),
+                                                const Padding(
                                                     padding:
-                                                    EdgeInsets.fromLTRB
-                                                      (10, 5, 10, 5)),
+                                                        EdgeInsets.fromLTRB(
+                                                            10, 5, 10, 5)),
                                                 Text(tss,
                                                     style: CustomStyle
                                                         .cardContentFalse),
@@ -294,9 +302,11 @@ class _DetailScreenState extends State<DetailScreen> {
                                           ),
                                         ),
                                       )
-                                    : Card( //True
-                                        shape: RoundedRectangleBorder(borderRadius:
-                                  BorderRadius.circular(6)),
+                                    : Card(
+                                        //True
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(6)),
                                         color: CustomColors.whiteCream,
                                         elevation: 10,
                                         child: SizedBox(
@@ -304,16 +314,16 @@ class _DetailScreenState extends State<DetailScreen> {
                                           width: 350,
                                           child: Center(
                                             child: Column(
-                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
                                               children: [
                                                 Text("Total Suspended Solids",
-                                                    style:
-                                                        CustomStyle
-                                                            .cardTitleTrue),
-                                                Padding(
+                                                    style: CustomStyle
+                                                        .cardTitleTrue),
+                                                const Padding(
                                                     padding:
-                                                    EdgeInsets.fromLTRB
-                                                      (10, 5, 10, 5)),
+                                                        EdgeInsets.fromLTRB(
+                                                            10, 5, 10, 5)),
                                                 Text(tss,
                                                     style: CustomStyle
                                                         .cardContentTrue),
@@ -326,7 +336,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             )
                           ]),
                         )),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     GestureDetector(
                       onTap: () {
                         Navigator.of(context)
@@ -342,8 +352,9 @@ class _DetailScreenState extends State<DetailScreen> {
                               children: [
                                 (ph2 < phMin || ph2 > phMax) //False
                                     ? Card(
-                                        shape: RoundedRectangleBorder(borderRadius:
-                                  BorderRadius.circular(6)),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(6)),
                                         color: CustomColors.colorAccent2,
                                         elevation: 10,
                                         child: SizedBox(
@@ -351,16 +362,16 @@ class _DetailScreenState extends State<DetailScreen> {
                                           width: 350,
                                           child: Center(
                                             child: Column(
-                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
                                               children: [
                                                 Text("pH",
-                                                    style:
-                                                        CustomStyle
-                                                            .cardTitleFalse),
-                                                Padding(
+                                                    style: CustomStyle
+                                                        .cardTitleFalse),
+                                                const Padding(
                                                     padding:
-                                                    EdgeInsets.fromLTRB
-                                                      (10, 5, 10, 5)),
+                                                        EdgeInsets.fromLTRB(
+                                                            10, 5, 10, 5)),
                                                 Text(ph,
                                                     style: CustomStyle
                                                         .cardContentFalse),
@@ -369,9 +380,11 @@ class _DetailScreenState extends State<DetailScreen> {
                                           ),
                                         ),
                                       )
-                                    : Card( //True
-                                        shape: RoundedRectangleBorder(borderRadius:
-                                  BorderRadius.circular(6)),
+                                    : Card(
+                                        //True
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(6)),
                                         color: CustomColors.whiteCream,
                                         elevation: 10,
                                         child: SizedBox(
@@ -379,16 +392,16 @@ class _DetailScreenState extends State<DetailScreen> {
                                           width: 350,
                                           child: Center(
                                             child: Column(
-                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
                                               children: [
                                                 Text("pH",
-                                                    style:
-                                                        CustomStyle
-                                                            .cardTitleTrue),
-                                                Padding(
+                                                    style: CustomStyle
+                                                        .cardTitleTrue),
+                                                const Padding(
                                                     padding:
-                                                    EdgeInsets.fromLTRB
-                                                      (10, 5, 10, 5)),
+                                                        EdgeInsets.fromLTRB(
+                                                            10, 5, 10, 5)),
                                                 Text(ph,
                                                     style: CustomStyle
                                                         .cardContentTrue),
@@ -405,8 +418,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: 80),
-
+                const SizedBox(height: 80),
               ],
             ),
           ),
@@ -415,8 +427,6 @@ class _DetailScreenState extends State<DetailScreen> {
     );
   }
 }
-
-
 
 class TDSPopUpCard extends StatelessWidget {
   const TDSPopUpCard({super.key});
@@ -444,11 +454,11 @@ class TDSPopUpCard extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                                Text(
-                                  "TDS",
-                                  style: CustomStyle.popUpTitle,
-                                  textAlign: TextAlign.left,
-                                ),
+                            Text(
+                              "TDS",
+                              style: CustomStyle.popUpTitle,
+                              textAlign: TextAlign.left,
+                            ),
                             Text(
                               tds,
                               style: CustomStyle.popUpValue,
@@ -463,20 +473,21 @@ class TDSPopUpCard extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("(Total Dissolved Solids)",
+                            Text(
+                              "(Total Dissolved Solids)",
                               style: CustomStyle.popUpSubtitle,
-                              textAlign: TextAlign.left,),
+                              textAlign: TextAlign.left,
+                            ),
                             Text(
                               "mg/l",
                               style: CustomStyle.popUpValueUnit,
                               textAlign: TextAlign.right,
                             ),
                           ],
-
                         ),
                       ],
                     ),
-                    Divider(
+                    const Divider(
                       color: CustomColors.blackGrey,
                       thickness: 0.2,
                     ),
@@ -485,21 +496,26 @@ class TDSPopUpCard extends StatelessWidget {
                       style: CustomStyle.popUpContent,
                       textAlign: TextAlign.justify,
                     ),
-                    SizedBox(height: 30.0),
-                    Divider(color: CustomColors.blackGrey,
-                      thickness: 0.2,),
+                    const SizedBox(height: 30.0),
+                    const Divider(
+                      color: CustomColors.blackGrey,
+                      thickness: 0.2,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Sumber: ",
+                        Text(
+                          "Sumber: ",
                           style: CustomStyle.resTitle,
                           textAlign: TextAlign.left,
                         ),
                       ],
                     ),
-                    Text(resWHO,
+                    Text(
+                      resWHO,
                       style: CustomStyle.res,
-                    textAlign: TextAlign.justify,)
+                      textAlign: TextAlign.justify,
+                    )
                   ],
                 ),
               ),
@@ -556,9 +572,11 @@ class TSSPopUpCard extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("(Total Suspended Solids)",
-                                style: CustomStyle.popUpSubtitle,
-                            textAlign: TextAlign.left,),
+                            Text(
+                              "(Total Suspended Solids)",
+                              style: CustomStyle.popUpSubtitle,
+                              textAlign: TextAlign.left,
+                            ),
                             Text(
                               "NTU",
                               style: CustomStyle.popUpValueUnit,
@@ -568,30 +586,33 @@ class TSSPopUpCard extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Divider(
+                    const Divider(
                       color: CustomColors.blackGrey,
                       thickness: 0.2,
                     ),
-                    Text(
-                      tssContent,
-                      style: CustomStyle.popUpContent,
-                        textAlign: TextAlign.justify
+                    Text(tssContent,
+                        style: CustomStyle.popUpContent,
+                        textAlign: TextAlign.justify),
+                    const SizedBox(height: 30.0),
+                    const Divider(
+                      color: CustomColors.blackGrey,
+                      thickness: 0.2,
                     ),
-                    SizedBox(height: 30.0),
-                    Divider(color: CustomColors.blackGrey,
-                      thickness: 0.2,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Sumber: ",
+                        Text(
+                          "Sumber: ",
                           style: CustomStyle.resTitle,
                           textAlign: TextAlign.left,
                         ),
                       ],
                     ),
-                    Text(resTSS1,
+                    Text(
+                      resTSS1,
                       style: CustomStyle.res,
-                      textAlign: TextAlign.justify,)
+                      textAlign: TextAlign.justify,
+                    )
                   ],
                 ),
               ),
@@ -639,30 +660,33 @@ class PHPopUpCard extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Divider(
+                    const Divider(
                       color: CustomColors.blackGrey,
                       thickness: 0.2,
                     ),
-                    Text(
-                      phContent,
-                      style: CustomStyle.popUpContent,
-                        textAlign: TextAlign.justify
+                    Text(phContent,
+                        style: CustomStyle.popUpContent,
+                        textAlign: TextAlign.justify),
+                    const SizedBox(height: 30.0),
+                    const Divider(
+                      color: CustomColors.blackGrey,
+                      thickness: 0.2,
                     ),
-                    SizedBox(height: 30.0),
-                    Divider(color: CustomColors.blackGrey,
-                      thickness: 0.2,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Sumber: ",
+                        Text(
+                          "Sumber: ",
                           style: CustomStyle.resTitle,
                           textAlign: TextAlign.left,
                         ),
                       ],
                     ),
-                    Text(respH1,
+                    Text(
+                      respH1,
                       style: CustomStyle.res,
-                      textAlign: TextAlign.justify,)
+                      textAlign: TextAlign.justify,
+                    )
                   ],
                 ),
               ),

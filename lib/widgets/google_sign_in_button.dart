@@ -5,6 +5,8 @@ import 'package:ca6/screens/dashboard_screen.dart';
 import 'package:ca6/utils/authentication.dart';
 
 class GoogleSignInButton extends StatefulWidget {
+  const GoogleSignInButton({super.key});
+
   @override
   _GoogleSignInButtonState createState() => _GoogleSignInButtonState();
 }
@@ -17,7 +19,7 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
     return Padding(
       padding: const EdgeInsets.only(bottom: 100.0),
       child: _isSigningIn
-          ? CircularProgressIndicator(
+          ? const CircularProgressIndicator(
         valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
       )
           : SizedBox(
@@ -59,7 +61,7 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Image(
+                const Image(
                   image: AssetImage("assets/google_logo.png"),
                   height: 18.0,
                 ),

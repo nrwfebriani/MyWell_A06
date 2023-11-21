@@ -52,8 +52,8 @@ class _NavbarState extends State<Navbar> {
                 : ClipOval(
               child: Material(
                 color: CustomColors.firebaseGrey.withOpacity(0.3),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                child: const Padding(
+                  padding: EdgeInsets.all(16.0),
                   child: Icon(
                     Icons.person,
                     size: 60,
@@ -62,25 +62,25 @@ class _NavbarState extends State<Navbar> {
                 ),
               ),
             ),),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: CustomColors.colorAccent,
             ),
           ),
           ListTile(
-            leading: Icon(Icons.home, color: CustomColors.colorAccent,),
+            leading: const Icon(Icons.home, color: CustomColors.colorAccent,),
             title: Text('Beranda', style: CustomStyle.navbarMenu,),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) => DashboardScreen(user: _user)),);
     }),
           ListTile(
-              leading: Icon(Icons.water_drop, color: CustomColors.colorAccent,),
+              leading: const Icon(Icons.water_drop, color: CustomColors.colorAccent,),
               title: Text('Informasi detail', style: CustomStyle.navbarMenu,),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context)
                 => DetailScreen(user: _user)),);
               }),
           ListTile(
-              leading: Icon(Icons.logout, color: CustomColors
+              leading: const Icon(Icons.logout, color: CustomColors
                   .colorAccent,),
               title: Text('Keluar', style: CustomStyle.navbarMenu,),
               onTap: () async {
@@ -92,7 +92,7 @@ class _NavbarState extends State<Navbar> {
                   _isSigningOut = false;
                 });
                 Navigator.push(context, MaterialPageRoute(builder: (context)
-                => SignInScreen()));
+                => const SignInScreen()));
               }),
         ],
       ),

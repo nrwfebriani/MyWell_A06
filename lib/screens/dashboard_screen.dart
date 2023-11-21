@@ -61,7 +61,7 @@ class _DashboardScreenState extends State<DashboardScreen>
 
   _DashboardInit(double vol) {
     controller = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 5000)); //5s
+        vsync: this, duration: const Duration(milliseconds: 5000)); //5s
     controller.forward();
   }
 
@@ -72,18 +72,18 @@ class _DashboardScreenState extends State<DashboardScreen>
         appBar: AppBar(
           elevation: 0,
           backgroundColor: CustomColors.colorAccent,
-          title: AppBarTitle(pageTitle: "Beranda"),
+          title: const AppBarTitle(pageTitle: "Beranda"),
         ),
         drawer: Navbar(user: _user),
         body: FutureBuilder(
             future: _fApp,
             builder: (context, snapshot) {
               if (snapshot.hasError) {
-                return Text("Error fetching data.");
+                return const Text("Error fetching data.");
               } else if (snapshot.hasData) {
                 return content();
               } else {
-                return CircularProgressIndicator();
+                return const CircularProgressIndicator();
               }
             }));
   }
@@ -121,7 +121,7 @@ class _DashboardScreenState extends State<DashboardScreen>
       });
     });
 
-    if(tds2 > tdsMax || tss2 > tssMax || ph2 > phMax || ph2 < phMin) {
+    if (tds2 > tdsMax || tss2 > tssMax || ph2 > phMax || ph2 < phMin) {
       status = 'Air tidak layak minum';
       flag = false;
     } else {
@@ -129,17 +129,18 @@ class _DashboardScreenState extends State<DashboardScreen>
       flag = true;
     }
 
-    return SafeArea(
+    return Container(
       child: Padding(
         padding: const EdgeInsets.only(
           left: 20.0,
           right: 20.0,
           bottom: 200.0,
-          top: 50.0,),
+          top: 50.0,
+        ),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            Row(),
+            const Row(),
             Expanded(
               child: Container(
                 width: 400,
@@ -155,24 +156,21 @@ class _DashboardScreenState extends State<DashboardScreen>
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Volume air",
-                            style: CustomStyle.pageTitle),
-                        SizedBox(height: 50.0),
+                        Text("Volume air", style: CustomStyle.pageTitle),
+                        const SizedBox(height: 50.0),
                         CustomPaint(
                           foregroundPainter: CircleProgress(volume2, true),
-                          child: Container(
+                          child: SizedBox(
                             width: 200,
                             height: 200,
                             child: Center(
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
-                                  Text(
-                                    '${volume2}',
-                                    style: CustomStyle.circleProgressTitle
-                                  ),
-                                  Text(
-                                    'Liter', style: CustomStyle.circleProgressDetail),
+                                  Text('$volume2',
+                                      style: CustomStyle.circleProgressTitle),
+                                  Text('Liter',
+                                      style: CustomStyle.circleProgressDetail),
                                 ],
                               ),
                             ),
@@ -184,36 +182,53 @@ class _DashboardScreenState extends State<DashboardScreen>
                 ),
               ),
             ),
-            SizedBox(height: 50),
-            (flag==false) ?
-            Directionality(
-              textDirection: TextDirection.rtl,
-              child: ElevatedButton.icon(style: ElevatedButton.styleFrom
-                (backgroundColor:
-              CustomColors.colorAccent2, padding: EdgeInsets.all(20), elevation:
-              40, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6))),
-                  onPressed: ()
-                  {Navigator.push(context, MaterialPageRoute(builder: (context)
-                  => DetailScreen(user: _user)),);}, icon: Icon(Icons
-                      .arrow_back, color: CustomColors.whiteCreamOri,),
-                  label: Text
-                    (status,
-                  style:
-                  CustomStyle.btnPrimary)),
-            )
+            const SizedBox(height: 50),
+            (flag == false)
+                ? Directionality(
+                    textDirection: TextDirection.rtl,
+                    child: ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: CustomColors.colorAccent2,
+                            padding: const EdgeInsets.all(20),
+                            elevation: 40,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(6))),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    DetailScreen(user: _user)),
+                          );
+                        },
+                        icon: const Icon(
+                          Icons.arrow_back,
+                          color: CustomColors.whiteCreamOri,
+                        ),
+                        label: Text(status, style: CustomStyle.btnPrimary)),
+                  )
                 : Directionality(
-              textDirection: TextDirection.rtl,
-                  child: ElevatedButton.icon(style: ElevatedButton.styleFrom
-      (backgroundColor:
-            CustomColors.colorAccent, padding: EdgeInsets.all(20), elevation:
-            40),
-                  onPressed: ()
-                  {Navigator.push(context, MaterialPageRoute(builder: (context)
-                  => DetailScreen(user: _user)),);}, icon: Icon(Icons
-                      .arrow_back, color: CustomColors.whiteCreamOri,),
-                  label: Text(status, style:
-                  CustomStyle.btnPrimary)),
-                )          ],
+                    textDirection: TextDirection.rtl,
+                    child: ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: CustomColors.colorAccent,
+                            padding: const EdgeInsets.all(20),
+                            elevation: 40),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    DetailScreen(user: _user)),
+                          );
+                        },
+                        icon: const Icon(
+                          Icons.arrow_back,
+                          color: CustomColors.whiteCreamOri,
+                        ),
+                        label: Text(status, style: CustomStyle.btnPrimary)),
+                  )
+          ],
         ),
       ),
     );
