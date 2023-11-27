@@ -36,10 +36,10 @@ class _DashboardScreenState extends State<DashboardScreen>
   double ph2 = 0.0;
   String status = '--';
   bool flag = false;
-  double phMax = 8;
-  double phMin = 6;
-  double tdsMax = 1000;
-  double tssMax = 6;
+  double phMax = 8.5;
+  double phMin = 6.5;
+  double tdsMax = 500;
+  double tssMax = 5;
 
   @override
   void initState() {
